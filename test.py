@@ -76,7 +76,7 @@ def test(data: pd.DataFrame, explained_variance: float | None = None, n_componen
         "min_samples_split": [2, 0.01, 0.1],
         "min_samples_leaf": [1, 0.01, 0.1],
         "max_features": [1, 2, 5, 0.5, feature_count],
-        "n_estimators": [5, 10, 20, 50, 100, 200, 500, 1000],
+        "n_estimators": [5, 10, 20, 50, 100, 200, 500],
     }
 
     extra_trees_regressor_grid = {
@@ -84,11 +84,11 @@ def test(data: pd.DataFrame, explained_variance: float | None = None, n_componen
         "min_samples_split": [2, 0.01, 0.1],
         "min_samples_leaf": [1, 0.01, 0.1],
         "max_features": [1, 2, 5, 0.5, feature_count],
-        "n_estimators": [5, 10, 20, 50, 100, 200, 500, 1000],
+        "n_estimators": [5, 10, 20, 50, 100, 200, 500],
     }
 
     gradient_boosting_regressor_grid = {
-        "n_estimators": [5, 10, 20, 50, 100, 200, 500, 1000],
+        "n_estimators": [5, 10, 20, 50, 100, 200, 500],
         "learning_rate": [0.05, 0.1]
     }
 
@@ -130,7 +130,7 @@ data = pd.read_csv("communities.data", header=None)\
 data_processing_utils.remove_and_fill_non_numerical(data)
 
 tests = {}
-for n_components in [1, 5, 24, 32, 64, None]:
+for n_components in [6, 32, 64, None]:
     print(f"n_components={n_components}")
     search_results = test(data, n_components=n_components)
     tests[n_components] = search_results
