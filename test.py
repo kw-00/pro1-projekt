@@ -95,7 +95,7 @@ def test(data: pd.DataFrame, explained_variance: float | None = None, n_componen
     mlp_regressor_grid = {
         "activation": ["relu", "identity", "tanh"],
         "hidden_layer_sizes": [(128,), (128, 64), (128, 64, 32), (128, 64, 32, 16), (128, 64, 32, 16, 8), (256, 64, 16), (128, 128, 128)],
-        "max_iter": [20, 50, 200, 500]
+        "max_iter": [200, 500, 1000]
     }
 
     linear_regression_search = GridSearchCV(estimator=linear_regression, param_grid={}, cv=cv, scoring=scoring, n_jobs=-1)
