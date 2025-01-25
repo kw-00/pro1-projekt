@@ -92,16 +92,6 @@ def test(data: pd.DataFrame, explained_variance: float | None = None, n_componen
         "learning_rate": [0.05, 0.1]
     }
 
-    xgb_regressor_grid = {
-        "max_depth": [3, 6, 12],
-        "n_estimators": [5, 10, 20, 50, 100, 200, 500, 1000]
-    }
-
-    xgbrf_regressor_grid = {
-        "max_depth": [3, 6, 12],
-        "n_estimators": [5, 10, 20, 50, 100, 200, 500, 1000]
-    }
-
     mlp_regressor_grid = {
         "activation": ["relu", "identity", "tanh"],
         "hidden_layer_sizes": [(128,), (128, 64), (128, 64, 32), (128, 64, 32, 16), (128, 64, 32, 16, 8), (256, 64, 16), (128, 128, 128)],
