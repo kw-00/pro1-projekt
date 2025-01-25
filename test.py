@@ -131,10 +131,12 @@ data_processing_utils.remove_and_fill_non_numerical(data)
 
 tests = {}
 for n_components in [1, 5, 24, 32, 64, None]:
+    print(f"n_components={n_components}")
     search_results = test(data, n_components=n_components)
     tests[n_components] = search_results
     with open(f"results/{n_components}.pickle", "wb") as file:
         pickle.dump(search_results, file)
+    print("\n")
 
 with open(f"test_results.pickle", "wb") as file:
     pickle.dump(tests, file)
