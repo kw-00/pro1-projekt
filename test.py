@@ -88,14 +88,14 @@ def test(data: pd.DataFrame, explained_variance: float | None = None, n_componen
     }
 
     gradient_boosting_regressor_grid = {
-        "n_estimators": [5, 10, 20, 50, 100, 200, 500],
+        "n_estimators": [5, 10, 20, 50, 100, 200, 500, 1000],
         "learning_rate": [0.05, 0.1]
     }
 
     mlp_regressor_grid = {
         "activation": ["relu", "identity", "tanh"],
-        "hidden_layer_sizes": [(128,), (128, 64), (128, 64, 32), (128, 64, 32, 16), (128, 64, 32, 16, 8), (256, 64, 16), (128, 128, 128)],
-        "max_iter": [200, 500, 1000]
+        "hidden_layer_sizes": [(128,), (128, 64), (128, 64, 32), (128, 64, 32, 16), (128, 64, 32, 16, 8), (128, 128, 128), (800, 400, 200, 100, 50, 25)],
+        "max_iter": [50, 200, 500]
     }
 
     linear_regression_search = GridSearchCV(estimator=linear_regression, param_grid={}, cv=cv, scoring=scoring, n_jobs=-1)
