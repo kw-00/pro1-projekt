@@ -120,7 +120,7 @@ def test(data: pd.DataFrame, explained_variance: float | None = None, n_componen
 
     for k, v in search_results.items():
         v.fit(X=X, y=y)
-        print(f"{k} best score: ".ljust(50), v.best_score_)
+        print(f"{k} best score: ".ljust(50), -v.best_score_)
     
     return search_results
 
